@@ -11,6 +11,7 @@ import { Feather, AntDesign } from "@expo/vector-icons";
 import isEmpty from "lodash.isempty";
 
 import {
+  ActivityStatsSection,
   Wallet,
   WalletSection,
   IDataListItem,
@@ -25,15 +26,15 @@ import {
 } from "../components";
 import { useColors, Colors } from "../hooks/useColors";
 
-const styles: StyleSheet.NamedStyles<{ container: CSSRuleList }> =
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingHorizontal: 12,
-      margin: 0,
-      backgroundColor: useColors().lightgray,
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 12,
+    margin: 0,
+    backgroundColor: useColors().lightgray,
+  },
+  innerContainer: { paddingHorizontal: 8, paddingBottom: 12 },
+});
 
 export const HomeScreen: FC<{}> = (): ReactElement => {
   const colors: Colors = useColors();
@@ -132,7 +133,10 @@ export const HomeScreen: FC<{}> = (): ReactElement => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.innerContainer}
+      >
         <Header />
         <DataListSection items={dataListItems} />
         <WalletSection wallet={walletInfo} />
@@ -142,29 +146,5 @@ export const HomeScreen: FC<{}> = (): ReactElement => {
         <ActivityChartSection />
       </ScrollView>
     </SafeAreaView>
-  );
-};
-
-interface ActivityStatsSectionProps {
-  activities: Activity[];
-}
-export const ActivityStatsSection: FC<ActivityStatsSectionProps> = ({
-  activities,
-}: ActivityStatsSectionProps): ReactElement => {
-  return (
-    <View
-      style={{
-        flexDirection: "row",
-        marginTop: 12,
-        marginHorizontal: 8,
-        justifyContent: "space-between",
-      }}
-    >
-      {activities.map(
-        (activity: Activity): ReactElement => (
-          <ActivityCard key={activity.calls} item={activity} />
-        )
-      )}
-    </View>
   );
 };
