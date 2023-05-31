@@ -22,7 +22,7 @@ export const StatusCard: FC<StatusCardProps> = (
     <View
       style={{
         height: 184,
-        maxWidth: "45%",
+        maxWidth: "47%",
         flex: 1,
         backgroundColor: colors.white,
         borderRadius: 12,
