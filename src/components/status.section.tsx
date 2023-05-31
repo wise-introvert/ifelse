@@ -22,8 +22,7 @@ export const StatusSection: FC<StatusSectionProps> = ({
   const styles = StyleSheet.create({
     container: {
       height: 48,
-      marginTop: 20,
-      marginHorizontal: 8,
+      marginTop: 12,
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-evenly",
@@ -49,7 +48,6 @@ export const StatusSection: FC<StatusSectionProps> = ({
     statusCardsContainer: {
       flexDirection: "row",
       marginTop: 12,
-      marginHorizontal: 8,
       justifyContent: "space-between",
     },
   });

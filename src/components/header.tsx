@@ -12,7 +12,6 @@ export const Header: FC<{}> = (): ReactElement => {
       minHeight: 64,
       maxHeight: 128,
       paddingVertical: 2,
-      paddingHorizontal: "5%",
       flexDirection: "row",
       marginTop: 12,
     },

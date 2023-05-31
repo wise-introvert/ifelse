@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { View, FlatList, ListRenderItemInfo } from "react-native";
+import { View, FlatList, ListRenderItemInfo, StyleSheet } from "react-native";
 
 import { IDataListItem, DataListItem } from ".";
 
@@ -9,8 +9,13 @@ interface DataListSectionProps {
 export const DataListSection: FC<DataListSectionProps> = (
   props: DataListSectionProps
 ): ReactElement => {
+  const styles = StyleSheet.create({
+    container: {
+      marginTop: 12,
+    },
+  });
   return (
-    <View style={{ marginTop: 8 }}>
+    <View style={styles.container}>
       <FlatList<IDataListItem>
         showsHorizontalScrollIndicator={false}
         horizontal

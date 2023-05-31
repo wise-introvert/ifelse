@@ -21,7 +21,6 @@ export const WalletSection: FC<WalletSectionProps> = ({
     container: {
       height: 140,
       backgroundColor: colors.white,
-      marginHorizontal: 8,
       marginTop: 12,
       borderRadius: 12,
       shadowColor: "#171717",

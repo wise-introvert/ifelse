@@ -11,7 +11,6 @@ export const ActivityChartSection: FC<{}> = (): ReactElement => {
     container: {
       height: 180,
       backgroundColor: colors.white,
-      marginHorizontal: 8,
       marginTop: 12,
       borderRadius: 12,
       shadowColor: "#171717",
