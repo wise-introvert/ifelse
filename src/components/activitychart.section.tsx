@@ -96,7 +96,33 @@ export const ActivityChartSection: FC<{}> = (): ReactElement => {
           />
         </View>
       </View>
-      <Chart />
+      <Chart
+        data={{
+          labels: ["", "", "", "", ""],
+          datasets: [
+            {
+              color: () => colors.mintgreen,
+              data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+              ],
+            },
+            {
+              color: () => colors.darkpurple,
+              data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+              ],
+            },
+          ],
+        }}
+      />
     </View>
   );
 };
