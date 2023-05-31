@@ -1,5 +1,5 @@
 import { FC, ReactElement, Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 import { useColors, Colors } from "../hooks/useColors";
 
@@ -18,93 +18,87 @@ export const DataListItem: FC<DataListItemProps> = (
   props: DataListItemProps
 ): ReactElement => {
   const colors: Colors = useColors();
+  const styles = StyleSheet.create({
+    container: {
+      width: 240,
+      height: 140,
+      borderRadius: 12,
+      marginHorizontal: 8,
+      paddingHorizontal: 18,
+      paddingVertical: 8,
+      shadowColor: "#171717",
+      shadowOffset: { width: -1, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 1,
+    },
+    topRowContainer: {
+      flex: 1,
+      flexDirection: "row",
+      height: "50%",
+    },
+    topRowLeftContainer: {
+      height: "100%",
+      marginRight: 18,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    topRowRightContainer: {
+      flex: 3,
+      height: "100%",
+      flexWrap: "wrap",
+      alignItems: "flex-start",
+      justifyContent: "center",
+    },
+    titleText: {
+      fontSize: 18,
+    },
+    bottomRowContainer: {
+      flex: 1,
+      flexDirection: "row",
+      height: "50%",
+    },
+    bottomRowLeftContainer: {
+      flex: 3,
+      height: "100%",
+      flexWrap: "wrap",
+      alignItems: "flex-start",
+      justifyContent: "center",
+    },
+    descriptionText: {
+      fontSize: 14,
+    },
+    bottomRowRightContainer: {
+      marginLeft: 18,
+      height: "100%",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });
 
   return (
     <View
-      style={{
-        width: 240,
-        height: 140,
-        backgroundColor: props.item.background || colors.blue,
-        borderRadius: 12,
-        marginHorizontal: 8,
-        paddingHorizontal: 18,
-        paddingVertical: 8,
-        shadowColor: "#171717",
-        shadowOffset: { width: -1, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 1,
-      }}
+      style={[
+        styles.container,
+        { backgroundColor: props.item.background || colors.blue },
+      ]}
     >
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          height: "50%",
-        }}
-      >
-        <View
-          style={{
-            height: "100%",
-            marginRight: 18,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+      <View style={styles.topRowContainer}>
+        <View style={styles.topRowLeftContainer}>
           {props.item.iconTop as any}
         </View>
-        <View
-          style={{
-            flex: 3,
-            height: "100%",
-            flexWrap: "wrap",
-            alignItems: "flex-start",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 18,
-              color: colors.white,
-            }}
-          >
+        <View style={styles.topRowRightContainer}>
+          <Text style={[styles.titleText, { color: colors.white }]}>
             {props.item.title}
           </Text>
         </View>
       </View>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          height: "50%",
-        }}
-      >
-        <View
-          style={{
-            flex: 3,
-            height: "100%",
-            flexWrap: "wrap",
-            alignItems: "flex-start",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 14,
-              color: colors.white,
-            }}
-          >
+      <View style={styles.bottomRowContainer}>
+        <View style={styles.bottomRowLeftContainer}>
+          <Text style={[styles.descriptionText, { color: colors.white }]}>
             {props.item.description}
           </Text>
         </View>
-
-        <View
-          style={{
-            marginLeft: 18,
-            height: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <View style={styles.bottomRowRightContainer}>
           {props.item.iconBottom as any}
         </View>
       </View>
